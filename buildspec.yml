@@ -1,0 +1,24 @@
+version: 0.2
+phases:
+  install:
+    runtime-versions:
+      python: 3.11
+    commands:
+      - echo "Installing dependencies..."
+#      - pip install -r requirements.txt -t lib
+  pre_build:
+    commands:
+      - echo "Starting pre_build phase.."
+  build:
+    commands:
+      - python --version
+      - aws --version
+      - echo "Building zip files"
+      - ls -al
+      - echo "Uploading the .py and zip file to s3 location "
+      - echo "Uploading the .py and zip file to s3 location done "
+
+  post_build:
+    commands:
+      - echo "Post build operations ..."
+      - echo "DONE!!"
